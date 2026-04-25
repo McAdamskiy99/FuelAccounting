@@ -51,11 +51,11 @@ public class TransactionService {
         car.setAverageFuel(LAFC);
 
         // 1. To`g`ri keladigan yoqilg`idan yetarli miqdorda mavjud emasligi holati
-        if(fuel.getFuelQuantity() < amount) {
-            throw new RuntimeException("ERROR: The required fuel type is not available in sufficient quantity\nThere are currently " + fuel.getFuelQuantity() +" liters of " + fuel.getFuelName() + "diesel fuel left.");
+        if(fuel.getQuantity() < amount) {
+            throw new RuntimeException("ERROR: The required fuel type is not available in sufficient quantity\nThere are currently " + fuel.getQuantity() +" liters of " + fuel.getName() + "diesel fuel left.");
         }
 
-        fuel.setFuelQuantity(fuel.getFuelQuantity() - amount);
+        fuel.setQuantity(fuel.getQuantity() - amount);
         fuelRepository.save(fuel);
 
         // 2. Ko'rsatilgan miqdordagi yoqilg‘i avtomobil yoqilg‘i bakiga sig'masligi holati

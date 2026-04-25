@@ -19,16 +19,16 @@ public class Fuel {
     private long id;
 
     @Column(unique = true)
-    private String fuelName;    // nomlanishi
+    private String name;    // nomlanishi
 
     @Column
-    private double fuelPrice;   // 1 litri uchun narx
+    private double price;   // 1 litri uchun narx
 
     @Column
-    private double fuelQuantity;   // mavjud miqdori
+    private double quantity;   // mavjud miqdori
 
     @Column
-    private double fuelTotal;   // maksimal miqdori (sisterna sig‘imi)
+    private double totalCap;   // maksimal miqdori (sisterna sig‘imi)
 
 
 }

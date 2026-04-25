@@ -23,7 +23,7 @@ public class Driver {
     private String lastname;
 
     @Column(unique = true)
-    private String phoneNumber;
+    private String phone;
 
     @Column(unique = true)
     private String license;
