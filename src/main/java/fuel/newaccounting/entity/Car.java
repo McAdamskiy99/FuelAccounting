@@ -29,14 +29,13 @@ public class Car {
     @JoinColumn(name = "driver_id")
     private Driver driver;
 
-    private double avaibleFuel;
+    private double avaibleFuel;     // bakdagi yoqilg'i miqdori
 
     private double odometrBegin;    // yil boshidagi odometr ko'rsatkichi
 
     private double odometrCurrent;  // hozirgi odometr ko'rsatkichi
 
-    private double averageFuel;
-
+    private double averageFuel;     // 100 km ga o'rtacha yoqilg'i sarfi
 
 
 }
