@@ -1,12 +1,10 @@
 package fuel.newaccounting.controller;
 
 
-import fuel.newaccounting.entity.Car;
-import fuel.newaccounting.repository.CarRepository;
+import fuel.newaccounting.service.CarService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/car")
@@ -14,21 +12,7 @@ import java.util.List;
 
 public class CarController {
 
-    private final CarRepository carRepository;
+    private final CarService carService;
 
-    @PostMapping("/add")
-    public Car addCar(@RequestBody Car car) {
-        return carRepository.save(car);
-    }
 
-    @GetMapping("/all")
-    public List<Car> getAllCar() {
-        return carRepository.findAll();
-    }
-
-    @DeleteMapping("/delete/{id}")
-    public String deleteCar(@PathVariable long id) {
-        carRepository.deleteById(id);
-        return "Car has been deleted";
-    }
 }

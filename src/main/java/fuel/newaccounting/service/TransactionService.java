@@ -2,10 +2,10 @@ package fuel.newaccounting.service;
 
 import fuel.newaccounting.entity.Car;
 import fuel.newaccounting.entity.Fuel;
-import fuel.newaccounting.entity.FuelTransaction;
+import fuel.newaccounting.entity.Transaction;
 import fuel.newaccounting.repository.CarRepository;
 import fuel.newaccounting.repository.FuelRepository;
-import fuel.newaccounting.repository.FuelTransactionRepository;
+import fuel.newaccounting.repository.TransactionRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,18 +14,18 @@ import java.time.LocalDateTime;
 
 @Service
 @RequiredArgsConstructor
-public class FuelTransactionService {
+public class TransactionService {
 
-    private final FuelTransactionRepository fuelTransactionRepository;
+    private final TransactionRepository transactionRepository;
     private final CarRepository carRepository;
     private final FuelRepository fuelRepository;
 
     @Transactional
-    public FuelTransaction newTransaction(Long carId, Long amount, Long balance, Long odometrCurrent){
+    public Transaction newTransaction(Long carId, Long amount, Long balance, Long odometrCurrent){
 
         Car car = carRepository.findById(carId).orElse(null);
         Fuel fuel = fuelRepository.findById(car.getModel().getFuel().getId()).orElse(null);
-        FuelTransaction transaction = new FuelTransaction();
+        Transaction transaction = new Transaction();
 
         // --- Avtomobilning 100 km ga o'rtacha yoqilg'i sarfini hisoblaymiz
         double distanse =car.getOdometrCurrent() - odometrCurrent;
@@ -92,7 +92,7 @@ public class FuelTransactionService {
 
         System.out.println("Fueling completed successfully");
 
-        return fuelTransactionRepository.save(transaction);
+        return transactionRepository.save(transaction);
     }
 
 

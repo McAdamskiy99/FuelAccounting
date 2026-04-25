@@ -1,16 +1,18 @@
 package fuel.newaccounting.controller;
 
-import fuel.newaccounting.service.FuelService;
+
+import fuel.newaccounting.service.ModelService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/fuel")
+@RequestMapping("/api/models")
 @RequiredArgsConstructor
-public class FuelController {
+public class ModelController {
 
-    private final FuelService fuelService;
+    private final ModelService modelService;
+
 
 
 }

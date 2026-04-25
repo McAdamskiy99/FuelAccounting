@@ -23,7 +23,7 @@ public class Car {
 
     @ManyToOne
     @JoinColumn(name = "model_id")
-    private CarModel model;
+    private Model model;
 
     @ManyToOne
     @JoinColumn(name = "driver_id")

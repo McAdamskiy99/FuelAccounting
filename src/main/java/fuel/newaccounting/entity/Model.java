@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CarModel {
+public class Model {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

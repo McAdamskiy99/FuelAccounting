@@ -1,24 +1,26 @@
 package fuel.newaccounting.controller;
 
 
-import fuel.newaccounting.entity.FuelTransaction;
+import fuel.newaccounting.entity.Transaction;
 import fuel.newaccounting.repository.CarRepository;
 import fuel.newaccounting.repository.FuelRepository;
-import fuel.newaccounting.repository.FuelTransactionRepository;
-import fuel.newaccounting.service.FuelTransactionService;
+import fuel.newaccounting.repository.TransactionRepository;
+import fuel.newaccounting.service.TransactionService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/transactions")
 @RequiredArgsConstructor
-public class FuelTransactionController {
+public class TransactionController {
 
-    private final FuelTransactionRepository fuelTransactionRepository;
-    private final FuelTransactionService transactionService;
+    private final TransactionRepository transactionRepository;
+    private final TransactionService transactionService;
     private final CarRepository carRepository;
     private final FuelRepository fuelRepository;
 
@@ -32,8 +34,8 @@ public class FuelTransactionController {
     }
 
     @GetMapping("/history")
-    public List<FuelTransaction> getAllFuelTransactions() {
-        return fuelTransactionRepository.findAll();
+    public List<Transaction> getAllFuelTransactions() {
+        return transactionRepository.findAll();
     }
 
     /*
