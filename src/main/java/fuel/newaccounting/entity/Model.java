@@ -28,10 +28,10 @@ public class Model {
 
     private Category category;  // kategoriyasi (A, B, C, D)
 
-    private double tankCapacity;    // bak sig'imi
+    private double tankCap;    // bak sig'imi
 
-    private double annualMileage;   // yillik probeg limiti
+    private double anMile;   // yillik probeg limiti
 
-    private double aver_fuel;   // 100 km uchun o'rtacha yoqilg'i sarfi (model uchun)
+    private double averFuelModel;   // 100 km uchun o'rtacha yoqilg'i sarfi (model uchun)
 
 }

@@ -33,14 +33,14 @@ public class TransactionService {
         int persent;
 
         // |---> Sarf oshgan bo'lsa
-        if(LAFC > car.getModel().getAver_fuel()) {
-            persent = (int) ((LAFC - car.getModel().getAver_fuel()) / car.getModel().getAver_fuel() * 100);
+        if(LAFC > car.getModel().getAverFuelModel()) {
+            persent = (int) ((LAFC - car.getModel().getAverFuelModel()) / car.getModel().getAverFuelModel() * 100);
             System.out.println("The car's average fuel consumption has increased by " + (persent > 1 ? persent : "<1") + "%");
         }
 
         // | ---> Sarf kamaygan bo'lsa
-        else if(LAFC < car.getModel().getAver_fuel()) {
-            persent = (int) ((car.getModel().getAver_fuel() - LAFC) / car.getModel().getAver_fuel() * 100);
+        else if(LAFC < car.getModel().getAverFuelModel()) {
+            persent = (int) ((car.getModel().getAverFuelModel() - LAFC) / car.getModel().getAverFuelModel() * 100);
             System.out.println("The car's average fuel consumption has decreased  by " + (persent > 1 ? persent : "<1") + "%");
         }
 
@@ -59,8 +59,8 @@ public class TransactionService {
         fuelRepository.save(fuel);
 
         // 2. Ko'rsatilgan miqdordagi yoqilg‘i avtomobil yoqilg‘i bakiga sig'masligi holati
-        if(amount + balance > car.getModel().getTankCapacity()) {
-            throw new RuntimeException("ERROR: The specified fuel amount exceeds the tank capacity\nThe car's fuel tank has a capacity of " + (car.getModel().getTankCapacity() - balance) + "10 liters");
+        if(amount + balance > car.getModel().getTankCap()) {
+            throw new RuntimeException("ERROR: The specified fuel amount exceeds the tank capacity\nThe car's fuel tank has a capacity of " + (car.getModel().getTankCap() - balance) + "10 liters");
         }
 
         car.setAvaibleFuel(amount+balance);
@@ -75,7 +75,7 @@ public class TransactionService {
         carRepository.save(car);
 
         // 4. Avtomobilning yillik bosib o'tishi mumkin bo'lgan limit tugagan holat
-        if(car.getOdometrBegin() - odometrCurrent >= car.getModel().getAnnualMileage()) {
+        if(car.getOdometrBegin() - odometrCurrent >= car.getModel().getAnMile()) {
             throw new RuntimeException("ERROR: The annual mileage limit for the car has been reached");
         }
 
