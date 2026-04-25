@@ -29,22 +29,22 @@ public class FuelTransactionService {
 
         // --- Avtomobilning 100 km ga o'rtacha yoqilg'i sarfini hisoblaymiz
         double distanse =car.getOdometrCurrent() - odometrCurrent;
-        double LAFC = distanse / (car.getAvaibleFuel() - balance);
+        double LAFC = (car.getAvaibleFuel() - balance) / distanse * 100;
         int persent;
 
-        // |---> Oshgan bo'lsa
+        // |---> Sarf oshgan bo'lsa
         if(LAFC > car.getModel().getAver_fuel()) {
             persent = (int) ((LAFC - car.getModel().getAver_fuel()) / car.getModel().getAver_fuel() * 100);
             System.out.println("The car's average fuel consumption has increased by " + (persent > 1 ? persent : "<1") + "%");
         }
 
-        // | ---> Kamaygan bo'lsa
+        // | ---> Sarf kamaygan bo'lsa
         else if(LAFC < car.getModel().getAver_fuel()) {
             persent = (int) ((car.getModel().getAver_fuel() - LAFC) / car.getModel().getAver_fuel() * 100);
             System.out.println("The car's average fuel consumption has decreased  by " + (persent > 1 ? persent : "<1") + "%");
         }
 
-        // |---> meyorida bo'lsa
+        // |---> Sarf me'yorida bo'lsa
         else System.out.println("Average fuel consumption is at standard levels");
 
         // --- Avtomobilning 100 km ga o'rtacha yoqilg'i sarfini yangilaymiz
@@ -52,8 +52,7 @@ public class FuelTransactionService {
 
         // 1. To`g`ri keladigan yoqilg`idan yetarli miqdorda mavjud emasligi holati
         if(fuel.getFuelQuantity() < amount) {
-            System.out.println("ERROR: The required fuel type is not available in sufficient quantity\nThere are currently " + fuel.getFuelQuantity() +" liters of " + fuel.getFuelName() + "diesel fuel left.");
-            return null;
+            throw new RuntimeException("ERROR: The required fuel type is not available in sufficient quantity\nThere are currently " + fuel.getFuelQuantity() +" liters of " + fuel.getFuelName() + "diesel fuel left.");
         }
 
         fuel.setFuelQuantity(fuel.getFuelQuantity() - amount);
@@ -61,16 +60,14 @@ public class FuelTransactionService {
 
         // 2. Ko'rsatilgan miqdordagi yoqilg‘i avtomobil yoqilg‘i bakiga sig'masligi holati
         if(amount + balance > car.getModel().getTankCapacity()) {
-            System.out.println("ERROR: The specified fuel amount exceeds the tank capacity\nThe car's fuel tank has a capacity of " + (car.getModel().getTankCapacity() - balance) + "10 liters");
-            return null;
+            throw new RuntimeException("ERROR: The specified fuel amount exceeds the tank capacity\nThe car's fuel tank has a capacity of " + (car.getModel().getTankCapacity() - balance) + "10 liters");
         }
 
         car.setAvaibleFuel(amount+balance);
 
         // 3. Odometr ko'rsatkichi xato kiritilgan holat
         if(odometrCurrent < car.getOdometrCurrent()) {
-            System.out.println("ERROR: Invalid odometer reading");
-            return null;
+            throw new RuntimeException("ERROR: Invalid odometer reading");
         }
 
 
@@ -79,8 +76,7 @@ public class FuelTransactionService {
 
         // 4. Avtomobilning yillik bosib o'tishi mumkin bo'lgan limit tugagan holat
         if(car.getOdometrBegin() - odometrCurrent >= car.getModel().getAnnualMileage()) {
-            System.out.println("ERROR: The annual mileage limit for the car has been reached");
-            return null;
+            throw new RuntimeException("ERROR: The annual mileage limit for the car has been reached");
         }
 
         // ---> Bugungi sana va hozirgi vaqtni olamiz
