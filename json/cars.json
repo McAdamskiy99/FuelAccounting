@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "regNum": "01A777AA",
+    "model": {"id": 1},
+    "driver": {"id": 1},
+    "avaibleFuel": 20,
+    "odometrBegin": 7142,
+    "odometrCurrent": 7142,
+    "averageFuel": 12
+  },
+  {
+    "id": 2,
+    "regNum": "01A111AA",
+    "model": {"id": 2},
+    "driver": {"id": 2},
+    "avaibleFuel": 25,
+    "odometrBegin": 5623,
+    "odometrCurrent": 5623,
+    "averageFuel": 9
+  },
+  {
+    "id": 3,
+    "regNum": "01A555AA",
+    "model": {"id": 3},
+     "driver": {"id": 3},
+    "avaibleFuel": 30,
+    "odometrBegin": 9562,
+    "odometrCurrent": 9562,
+    "averageFuel": 12
+  },
+  {
+    "id": 4,
+    "regNum": "01461AAA",
+    "model": {"id": 4},
+    "driver": {"id": 4},
+    "avaibleFuel": 35,
+    "odometrBegin": 7645,
+    "odometrCurrent": 7645,
+    "averageFuel": 12
+  },
+  {
+    "id": 5,
+    "regNum": "01942AAA",
+    "model": {"id": 5},
+    "driver": {"id": 5},
+    "avaibleFuel": 60,
+    "odometrBegin": 9326,
+    "odometrCurrent": 9326,
+    "averageFuel": 20
+  }
+]

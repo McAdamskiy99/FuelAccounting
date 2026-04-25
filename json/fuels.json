@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "fuelName": "AI-92",
+    "fuelPrice": 13000,
+    "fuelQuantity": 950,
+    "fuelTotal": 2000
+  },
+  {
+    "id": 2,
+    "fuelName": "AI-95",
+    "fuelPrice": 15000,
+    "fuelQuantity": 850,
+    "fuelTotal": 2000
+  },
+  {
+    "id": 3,
+    "fuelName": "Dizel",
+    "fuelPrice": 12000,
+    "fuelQuantity": 1200,
+    "fuelTotal": 2000
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "name": "Malibu",
+    "fuel": {"id": 2},
+    "category": "B",
+    "tankCapacity": 65,
+    "annualMileage": 20000,
+    "aver_fuel": 12
+  },
+  {
+    "id": 2,
+    "name": "Chevrolet Nexia-3",
+    "fuel": {"id": 1},
+    "category": "B",
+    "tankCapacity": 45,
+    "annualMileage": 22000,
+    "aver_fuel": 10
+  },
+  {
+    "id": 3,
+    "name": "Chevrolet Tracker",
+    "fuel": {"id": 2},
+    "category": "B",
+    "tankCapacity": 53,
+    "annualMileage": 23000,
+    "aver_fuel": 9.5
+  },
+  {
+    "id": 4,
+    "name": "Isuzu NMR 85",
+    "fuel": {"id": 3},
+    "category": "C",
+    "tankCapacity": 90,
+    "annualMileage": 40000,
+    "aver_fuel": 13
+  },
+  {
+    "id": 5,
+    "name": "Isuzu NP 21(avtobus)",
+    "fuel": {"id": 3},
+    "category": "D",
+    "tankCapacity": 140,
+    "annualMileage": 50000,
+    "aver_fuel": 20
+  }
+]
