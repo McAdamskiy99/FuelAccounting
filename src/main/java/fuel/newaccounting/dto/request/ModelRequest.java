@@ -14,22 +14,22 @@ import lombok.Setter;
 
 public class ModelRequest {
 
-    @NotBlank(message = "Model name is empty, please check and enter the model name.")
+//    @NotBlank(message = "Model name is empty, please check and enter the model name.")
     private String name;
 
-    @Positive(message = "Incorrect Fuel ID, please check and enter a valid ID.")
+//    @Positive(message = "Incorrect Fuel ID, please check and enter a valid ID.")
     private Long fuelId;
 
-    @Positive(message = "Incorrect Category ID, please check and enter a valid ID.")
-    private Long categoryId;
+//    @NotBlank(message = "Model category is empty, please check and enter the model category.")
+    private String category;
 
-    @Positive(message = "Incorrect tank capacity for the selected model, please check and enter a valid value.")
+//    @Positive(message = "Incorrect tank capacity for the selected model, please check and enter a valid value.")
     private double tankCap;
 
-    @Positive(message = "Incorrect annual mileage limit, please check and enter a valid value.")
+//    @Positive(message = "Incorrect annual mileage limit, please check and enter a valid value.")
     private double anMile;
 
-    @Positive(message = "Invalid average fuel consumption (per 100 km), please check and enter a valid value.")
+//    @Positive(message = "Invalid average fuel consumption (per 100 km), please check and enter a valid value.")
     private double averFuelModel;
 
 }

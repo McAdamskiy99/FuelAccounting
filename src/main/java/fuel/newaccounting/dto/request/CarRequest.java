@@ -14,16 +14,18 @@ import lombok.Setter;
 
 public class CarRequest {
 
-    @NotBlank(message = "Car registration number is empty, please check and enter the registration number.")
+//    @NotBlank(message = "Car registration number is empty, please check and enter the registration number.")
     private String regNum;
 
-    @Positive(message = "Incorrect Model ID, please check and enter a valid ID.")
+//    @Positive(message = "Incorrect Model ID, please check and enter a valid ID.")
     private Long modelId;
 
-    @Positive(message = "Incorrect Driver ID, please check and enter a valid ID.")
+//    @Positive(message = "Incorrect Driver ID, please check and enter a valid ID.")
     private Long driverId;
 
-    @Positive(message = "Incorrect initial odometer value, please enter a valid number.")
+//    @Positive(message = "Incorrect initial odometer value, please enter a valid number.")
     private double odometrBegin;
+
+    private double avaibleFuel;
 
 }

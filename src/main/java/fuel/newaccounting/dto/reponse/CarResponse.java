@@ -1,31 +1,28 @@
 package fuel.newaccounting.dto.reponse; // Paket nomidagi xatoni to'g'rilashni unutmang
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class CarResponse {
 
-    private Long id;                // Bazadagi ID (albatta kerak)
+    private Long id;
 
-    private String regNum;          // Mashina raqami
+    private String regNum;
 
-    // Model haqida to'liqroq ma'lumot
     private Long modelId;
-    private String modelName;       // Masalan: "Tahoe"
+    private String model;
 
-    // Haydovchi haqida ma'lumot
     private Long driverId;
-    private String driverFullName;  // Masalan: "Eshmatov Toshmat"
+    private String driverFullName;
 
-    private double avaibleFuel;     // Yoqilg'i qoldig'i
+    private double avaibleFuel;
 
-    private double odometrBegin;    // Boshlang'ich kilometr
+    private double odometrBegin;
 
-    private double odometrCurrent;  // Hozirgi kilometr
+    private double odometrCurrent;
 
-    private double averageFuel;     // 100 km ga sarf
+    private double averageFuel;
 }

@@ -15,17 +15,17 @@ import lombok.Setter;
 
 public class FuelRequest {
 
-    @NotBlank(message = "Fuel name is empty, please enter the fuel name.")
+//    @NotBlank(message = "Fuel name is empty, please enter the fuel name.")
     private String name;
 
-    @Min(value = 1, message = "Incorrect fuel price, please enter a correct value.")
+//    @Min(value = 1, message = "Incorrect fuel price, please enter a correct value.")
     private Double price;
 
 
-    @Min(value = 1, message = "Incorrect fuel quantity, please enter a valid number.")
+//    @Min(value = 1, message = "Incorrect fuel quantity, please enter a valid number.")
     private double quantity;
 
-    @Min(value = 1, message = "Incorrect total fuel capacity, please check and try again.")
+//    @Min(value = 1, message = "Incorrect total fuel capacity, please check and try again.")
     private double totalCap;
 
 }

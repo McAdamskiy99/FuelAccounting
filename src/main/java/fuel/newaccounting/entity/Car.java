@@ -35,7 +35,7 @@ public class Car {
 
     private double odometrCurrent;  // hozirgi odometr ko'rsatkichi
 
-    private double averageFuel;     // 100 km ga o'rtacha yoqilg'i sarfi
+    private double averFuel;     // 100 km ga o'rtacha yoqilg'i sarfi
 
 
 }

@@ -13,15 +13,15 @@ import lombok.Setter;
 
 public class DriverRequest {
 
-    @NotBlank(message = "Driver name is empty. Please enter the driver name")
+//    @NotBlank(message = "Driver name is empty. Please enter the driver name")
     private String name;
 
-    @NotBlank(message = "Driver lastname is empty. Please enter the driver lastname")
+//    @NotBlank(message = "Driver lastname is empty. Please enter the driver lastname")
     private String lastname;
 
-    @NotBlank(message = "Driver phone number is empty. Please enter the driver phone number")
+//    @NotBlank(message = "Driver phone number is empty. Please enter the driver phone number")
     private String phone;
 
-    @NotBlank(message = "Driver license serial number is empty. Please enter the driver license serial number")
+//    @NotBlank(message = "Driver license serial number is empty. Please enter the driver license serial number")
     private String license;
 }

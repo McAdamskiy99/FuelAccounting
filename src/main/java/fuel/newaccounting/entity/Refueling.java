@@ -9,13 +9,13 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "fuel_transactions")
+@Table(name = "refueling")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Transaction {
+public class Refueling {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,12 +30,12 @@ public class Transaction {
     private double amount;  // quyish kerak bo'lgan yoqilg'i miqdori
 
     @Column
-    private double balance;
+    private double balance; // yoqilg'i bakidagi qoldiq
 
     @Column
     private double odometr;     // odometr ko'rsatkichi
 
-    @Column(name = "transaction_date")
+    @Column(name = "refueling_date")
     private LocalDateTime currentDate;
 
 }

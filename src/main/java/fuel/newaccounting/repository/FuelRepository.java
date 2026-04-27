@@ -7,5 +7,8 @@ import java.util.List;
 
 public interface FuelRepository extends JpaRepository<Fuel, Long> {
 
-    List<Fuel> id(long id);
+//    List<Fuel> id(long id);
+    boolean existsByName(String name);
+
+
 }
