@@ -20,6 +20,7 @@ public class ModelResponse {
 
     private String name;
 
+    private Long fuelId;
     private String fuel;
 
     private String category;

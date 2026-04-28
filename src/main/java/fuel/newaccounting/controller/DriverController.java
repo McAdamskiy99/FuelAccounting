@@ -22,10 +22,24 @@ public class DriverController {
     }
 
     @GetMapping("/list")
-    public List<DriverResponse> listDrivers(){
+    public ResponseEntity<?> listDrivers(){
         return driverService.allDrivers();
     }
 
+    @GetMapping("/list/{id}")
+    public ResponseEntity<?> getDriver(@PathVariable Long id){
+        return driverService.getDriver(id);
+    }
+
+    @PutMapping("/update/id")
+    public ResponseEntity<?> updateDriver(@PathVariable Long id,  @RequestBody DriverRequest request){
+        return driverService.updateDriver(id, request);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteDriver(@PathVariable Long id){
+        return driverService.deleteDriver(id);
+    }
 
 
 }

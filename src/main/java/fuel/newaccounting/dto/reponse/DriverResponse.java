@@ -9,7 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 public class DriverResponse {
 
-    private int id;
+    private Long id;
 
     private String name;
 

@@ -24,9 +24,22 @@ public class CarController {
     }
 
     @GetMapping("/list")
-    public List<CarResponse> allCars(){
+    public ResponseEntity<?> allCars(){
         return carService.allCars();
     }
 
+    @GetMapping("/list/{id}")
+    public ResponseEntity<?> getCar(@PathVariable Long id){
+        return carService.getCar(id);
+    }
 
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateCar(@PathVariable Long id, @RequestBody CarRequest request){
+        return carService.updateCar(id, request);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteCar(@PathVariable Long id){
+        return carService.deleteCar(id);
+    }
 }

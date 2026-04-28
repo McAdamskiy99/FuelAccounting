@@ -1,18 +1,11 @@
 package fuel.newaccounting.controller;
 
 
-import fuel.newaccounting.dto.reponse.RefuelingResponse;
 import fuel.newaccounting.dto.request.RefuelingRequest;
-import fuel.newaccounting.entity.Refueling;
-import fuel.newaccounting.repository.CarRepository;
-import fuel.newaccounting.repository.FuelRepository;
-import fuel.newaccounting.repository.RefuelingRepository;
 import fuel.newaccounting.service.RefuelingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/transactions")
@@ -27,8 +20,24 @@ public class RefuelingController {
     }
 
     @GetMapping("/history")
-    public List<RefuelingResponse> history(){
-        return refService.allRefuelings();
+    public ResponseEntity<?> history() {
+        return refService.getAllRefuelings();
     }
+
+    @GetMapping("/list/{id}")
+    public ResponseEntity<?> getRefueling(@PathVariable Long id){
+        return refService.getRefueling(id);
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateRefueling(@PathVariable Long id, @RequestBody RefuelingRequest request){
+        return refService.updateRefueling(id, request);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteRefueling(@PathVariable Long id){
+        return refService.deleteRefueling(id);
+    }
+
 
 }

@@ -21,13 +21,13 @@ public class DriverService {
 
     public ResponseEntity<?> newDriver(DriverRequest request) {
 
-        if(request.getName().isEmpty()){return ResponseEntity.status(HttpStatus.CONFLICT).body("Fuel name cannot be empty");}
-        if(request.getLastname().isEmpty()){return ResponseEntity.status(HttpStatus.CONFLICT).body("Last name cannot be empty");}
+        if(request.getName().trim().isEmpty()){return ResponseEntity.status(HttpStatus.CONFLICT).body("Fuel name cannot be empty");}
+        if(request.getLastname().trim().isEmpty()){return ResponseEntity.status(HttpStatus.CONFLICT).body("Last name cannot be empty");}
 
-        if(request.getPhone().isEmpty()){return ResponseEntity.status(HttpStatus.CONFLICT).body("Phone number cannot be empty");}
+        if(request.getPhone().trim().isEmpty()){return ResponseEntity.status(HttpStatus.CONFLICT).body("Phone number cannot be empty");}
         if(driverRep.existsByPhone(request.getPhone())){return ResponseEntity.status(HttpStatus.CONFLICT).body("Phone already exists");}
 
-        if(request.getLicense().isEmpty()){return ResponseEntity.status(HttpStatus.CONFLICT).body("License serial number cannot be empty");}
+        if(request.getLicense().trim().isEmpty()){return ResponseEntity.status(HttpStatus.CONFLICT).body("License serial number cannot be empty");}
         if(driverRep.existsByLicense(request.getLicense())){return ResponseEntity.status(HttpStatus.CONFLICT).body("License serial number already exists");}
 
         Driver driver = new Driver();
@@ -41,7 +41,7 @@ public class DriverService {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    public List<DriverResponse> allDrivers(){
+    public ResponseEntity<?> allDrivers(){
         List<Driver> drivers = driverRep.findAll();
         List<DriverResponse> driverResponseList = new ArrayList<>();
         for(Driver driver : drivers){
@@ -52,8 +52,51 @@ public class DriverService {
             driverResponse.setLicense(driver.getLicense());
             driverResponseList.add(driverResponse);
         }
-        return driverResponseList;
+        return ResponseEntity.status(HttpStatus.OK).body(driverResponseList);
     }
 
 
+    public ResponseEntity<?> updateDriver(Long id, DriverRequest request) {
+
+        if(!driverRep.existsById(id)){return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Driver not found");}
+
+        if(request.getName().trim().isEmpty()){return ResponseEntity.status(HttpStatus.CONFLICT).body("Fuel name cannot be empty");}
+        if(request.getLastname().trim().isEmpty()){return ResponseEntity.status(HttpStatus.CONFLICT).body("Last name cannot be empty");}
+
+        if(request.getPhone().trim().isEmpty()){return ResponseEntity.status(HttpStatus.CONFLICT).body("Phone number cannot be empty");}
+        if(driverRep.existsByPhone(request.getPhone())){return ResponseEntity.status(HttpStatus.CONFLICT).body("Phone already exists");}
+
+        if(request.getLicense().isEmpty()){return ResponseEntity.status(HttpStatus.CONFLICT).body("License serial number cannot be empty");}
+        if(driverRep.existsByLicense(request.getLicense())){return ResponseEntity.status(HttpStatus.CONFLICT).body("License serial number already exists");}
+
+        Driver driver = driverRep.findById(id).get();
+
+        driver.setName(request.getName());
+        driver.setLastname(request.getLastname());
+        driver.setPhone(request.getPhone());
+        driver.setLicense(request.getLicense());
+        driverRep.save(driver);
+
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    public ResponseEntity<?> deleteDriver(Long id) {
+        if(driverRep.findById(id).isEmpty()){return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Driver not found");}
+        driverRep.deleteById(id);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
+    public ResponseEntity<?> getDriver(Long id) {
+        if(!driverRep.existsById(id)){return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Driver not found");}
+
+        Driver driver = driverRep.findById(id).get();
+
+        DriverResponse response = new DriverResponse();
+        response.setId(driver.getId());
+        response.setName(driver.getName());
+        response.setLastname(driver.getLastname());
+        response.setPhone(driver.getPhone());
+        response.setLicense(driver.getLicense());
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
 }
