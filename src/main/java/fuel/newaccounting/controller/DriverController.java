@@ -31,7 +31,7 @@ public class DriverController {
         return driverService.getDriver(id);
     }
 
-    @PutMapping("/update/id")
+    @PutMapping("/update/{id}")
     public ResponseEntity<?> updateDriver(@PathVariable Long id,  @RequestBody DriverRequest request){
         return driverService.updateDriver(id, request);
     }

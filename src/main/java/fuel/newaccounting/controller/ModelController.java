@@ -1,14 +1,11 @@
 package fuel.newaccounting.controller;
 
 
-import fuel.newaccounting.dto.reponse.ModelResponse;
 import fuel.newaccounting.dto.request.ModelRequest;
 import fuel.newaccounting.service.ModelService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/models")
@@ -23,8 +20,8 @@ public class ModelController {
     }
 
     @GetMapping("/list")
-    public ResponseEntity<?> allModels(){
-        return modelService.allModels();
+    public ResponseEntity<?> getAllModels(){
+        return modelService.getAllModels();
     }
 
     @GetMapping("/list/{id}")
@@ -32,7 +29,7 @@ public class ModelController {
         return modelService.getModel(id);
     }
 
-    @PutMapping("/update/id")
+    @PutMapping("/update/{id}")
     public ResponseEntity<?> updateModel(@PathVariable Long id, @RequestBody ModelRequest request){
         return modelService.updateModel(id, request);
     }

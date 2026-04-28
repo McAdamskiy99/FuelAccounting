@@ -3,35 +3,35 @@
     "id": 1,
     "name": "Doston",
     "lastname": "Tursunov",
-    "phoneNumber": "+998954725685",
+    "phone": "+998954725685",
     "license": "AC1112233"
   },
   {
     "id": 2,
     "name": "Husan",
     "lastname": "Jalilov",
-    "phoneNumber": "+998996635854",
+    "phone": "+998996635854",
     "license": "AB5234167"
   },
   {
     "id": 3,
     "name": "Kamol",
     "lastname": "Sodiqov",
-    "phoneNumber": "+998912105239",
+    "phone": "+998912105239",
     "license": "AB9653587"
   },
   {
     "id": 4,
     "name": "Jasur",
     "lastname": "Karimov",
-    "phoneNumber": "+998904669531",
+    "phone": "+998904669531",
     "license": "AA6223001"
   },
   {
     "id": 5,
     "name": "Salim",
     "lastname": "Malikov",
-    "phoneNumber": "+998953352656",
+    "phone": "+998953352656",
     "license": "AD2889878"
   }
 ]

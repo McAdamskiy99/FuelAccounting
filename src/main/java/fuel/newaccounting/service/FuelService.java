@@ -43,18 +43,18 @@ public class FuelService {
 
     public ResponseEntity<?> getAllFuel(){
         List<Fuel> fuels = fuelRep.findAll();
-        List<FuelResponse> fuelResponses = new ArrayList<>();
+        List<FuelResponse> responses = new ArrayList<>();
         for (Fuel fuel : fuels) {
-            FuelResponse fuelResponse = new FuelResponse();
-            fuelResponse.setId(fuel.getId());
-            fuelResponse.setName(fuel.getName());
-            fuelResponse.setPrice(fuel.getPrice());
-            fuelResponse.setQuantity(fuel.getQuantity());
-            fuelResponse.setTotalCap(fuel.getTotalCap());
-            fuelResponses.add(fuelResponse);
+            FuelResponse response = new FuelResponse();
+            response.setId(fuel.getId());
+            response.setName(fuel.getName());
+            response.setPrice(fuel.getPrice());
+            response.setQuantity(fuel.getQuantity());
+            response.setTotalCap(fuel.getTotalCap());
+            responses.add(response);
         }
 
-        return ResponseEntity.ok(fuelResponses);
+        return ResponseEntity.ok(responses);
     }
 
 
